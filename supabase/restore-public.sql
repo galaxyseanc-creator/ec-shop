@@ -61,24 +61,102 @@ CREATE TABLE public.products (
 
 ALTER TABLE public.products OWNER TO postgres;
 
---
--- Name: messages; Type: TABLE; Schema: realtime; Owner: supabase_realtime_admin
+-- orders and order_items were empty in the backup.
 
-COPY public.order_items (id, order_id, product_id, product_name, product_price, size, quantity, created_at) FROM stdin;
-\.
-
-COPY public.orders (id, user_id, email, total_amount, status, stripe_session_id, created_at) FROM stdin;
-\.
-
-COPY public.products (id, name, price, description, category, image_url, images, sizes, stock, created_at, stock_by_size) FROM stdin;
-70ec8c88-90d3-48d3-8820-0bac0a09bf5b	SkyFisH PENDANT	6000	⚠︎一体ずつハンドメイドのため個体差がございます\r\n\r\nEach item is handmade so there may be individual differences.	アクセサリ	https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/skyfish-pendant-blue.jpg	{https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/skyfish-pendant-blue.jpg}	{}	1	2026-01-12 14:50:03.756885+00	{}
-6855b588-ae11-4bc1-b534-9cee9f51b075	OXYGEN MAGAZINE T-SHIRT	5500	OXYGEN MAGAZINE T-SHIRT	t-shirt	https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-t-front.jpg	{https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-t-front.jpg}	{S,M,L,XL,2XL,3XL}	7	2026-01-09 07:13:04.047777+00	{"L": 1, "M": 1, "S": 2, "XL": 2, "2XL": 0, "3XL": 1}
-e68d299c-5312-4c76-9a53-1232f6ecb3bf	OXYGEN MAGAZINE LONG SHIRT	7000	OXYGEN MAGAZINE LONG SHIRT	t-shirt	https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-long-t-front.jpg	{https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-long-t-front.jpg}	{XL,2XL,3XL}	5	2026-01-09 07:13:04.047777+00	{"XL": 1, "2XL": 2, "3XL": 2}
-f517ec10-4aa4-4bf1-80ae-3e3769888df8	OXYGEN MAGAZINE	1700	OXYGEN MAGAZINE	magazine	https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-magazine-front.jpg	{https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-magazine-front.jpg,https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-magazine-inside.jpg}	{}	3	2026-01-09 07:13:04.047777+00	{}
-c51f92b0-cac6-4fbb-ab9d-5792779ffc53	空間断裂多次元生命誕生日 バンダナ	6000	空間断裂多次元生命誕生日	bandana	https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/bandana.jpg	{https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/bandana.jpg}	{}	9	2026-01-09 07:13:04.047777+00	{}
-d27f267a-2618-4442-9bf7-226e6c396a5c	MADE IN HEAVEN T-SHIRT	7000	material(95%polyester 5%spandex)	t-shirt	https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/made-in-heaven-t-front.jpg	{https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/made-in-heaven-t-front.jpg,https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/made-in-heaven-t-back.jpg}	{2XS,XS,S,M,L,XL,2XL,3XL,4XL}	18	2026-01-09 07:13:04.047777+00	{"L": 2, "M": 1, "S": 2, "XL": 3, "XS": 1, "2XL": 1, "2XS": 2, "3XL": 3, "4XL": 3}
-cbf95fe0-8b90-4cb3-909e-6e1c68ccf8c3	CYBER SKYFISH PENDANT	5500	⚠︎一体ずつハンドメイドのため個体差がございます\r\n⚠︎繊細なため激しい動きには向いておりません\r\n⚠︎金具の色は金と銀ランダムになります\r\n\r\nEach item is handmade so there may be individual differences.\r\n⚠︎Delicate items not suitable for vigorous movement.\r\n⚠︎The metal fittings are gold and silver in random color.	アクセサリ	https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-white.jpg	{https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-white.jpg,https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-silver.jpg,https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-black.jpg}	{シルバー,ホワイト,ブラック}	0	2026-01-12 14:50:03.756885+00	{"シルバー": 0, "ブラック": 0, "ホワイト": 0}
-\.
+INSERT INTO public.products (
+    id, name, price, description, category, image_url, images, sizes, stock, created_at, stock_by_size
+) VALUES
+(
+    '70ec8c88-90d3-48d3-8820-0bac0a09bf5b',
+    'SkyFisH PENDANT',
+    6000,
+    E'⚠︎一体ずつハンドメイドのため個体差がございます\r\n\r\nEach item is handmade so there may be individual differences.',
+    'アクセサリ',
+    'https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/skyfish-pendant-blue.jpg',
+    ARRAY['https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/skyfish-pendant-blue.jpg']::text[],
+    ARRAY[]::text[],
+    1,
+    '2026-01-12 14:50:03.756885+00',
+    '{}'::jsonb
+),
+(
+    '6855b588-ae11-4bc1-b534-9cee9f51b075',
+    'OXYGEN MAGAZINE T-SHIRT',
+    5500,
+    'OXYGEN MAGAZINE T-SHIRT',
+    't-shirt',
+    'https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-t-front.jpg',
+    ARRAY['https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-t-front.jpg']::text[],
+    ARRAY['S','M','L','XL','2XL','3XL']::text[],
+    7,
+    '2026-01-09 07:13:04.047777+00',
+    '{"L": 1, "M": 1, "S": 2, "XL": 2, "2XL": 0, "3XL": 1}'::jsonb
+),
+(
+    'e68d299c-5312-4c76-9a53-1232f6ecb3bf',
+    'OXYGEN MAGAZINE LONG SHIRT',
+    7000,
+    'OXYGEN MAGAZINE LONG SHIRT',
+    't-shirt',
+    'https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-long-t-front.jpg',
+    ARRAY['https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-long-t-front.jpg']::text[],
+    ARRAY['XL','2XL','3XL']::text[],
+    5,
+    '2026-01-09 07:13:04.047777+00',
+    '{"XL": 1, "2XL": 2, "3XL": 2}'::jsonb
+),
+(
+    'f517ec10-4aa4-4bf1-80ae-3e3769888df8',
+    'OXYGEN MAGAZINE',
+    1700,
+    'OXYGEN MAGAZINE',
+    'magazine',
+    'https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-magazine-front.jpg',
+    ARRAY['https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-magazine-front.jpg','https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/oxygen-magazine-inside.jpg']::text[],
+    ARRAY[]::text[],
+    3,
+    '2026-01-09 07:13:04.047777+00',
+    '{}'::jsonb
+),
+(
+    'c51f92b0-cac6-4fbb-ab9d-5792779ffc53',
+    '空間断裂多次元生命誕生日 バンダナ',
+    6000,
+    '空間断裂多次元生命誕生日',
+    'bandana',
+    'https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/bandana.jpg',
+    ARRAY['https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/bandana.jpg']::text[],
+    ARRAY[]::text[],
+    9,
+    '2026-01-09 07:13:04.047777+00',
+    '{}'::jsonb
+),
+(
+    'd27f267a-2618-4442-9bf7-226e6c396a5c',
+    'MADE IN HEAVEN T-SHIRT',
+    7000,
+    'material(95%polyester 5%spandex)',
+    't-shirt',
+    'https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/made-in-heaven-t-front.jpg',
+    ARRAY['https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/made-in-heaven-t-front.jpg','https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/made-in-heaven-t-back.jpg']::text[],
+    ARRAY['2XS','XS','S','M','L','XL','2XL','3XL','4XL']::text[],
+    18,
+    '2026-01-09 07:13:04.047777+00',
+    '{"L": 2, "M": 1, "S": 2, "XL": 3, "XS": 1, "2XL": 1, "2XS": 2, "3XL": 3, "4XL": 3}'::jsonb
+),
+(
+    'cbf95fe0-8b90-4cb3-909e-6e1c68ccf8c3',
+    'CYBER SKYFISH PENDANT',
+    5500,
+    E'⚠︎一体ずつハンドメイドのため個体差がございます\r\n⚠︎繊細なため激しい動きには向いておりません\r\n⚠︎金具の色は金と銀ランダムになります\r\n\r\nEach item is handmade so there may be individual differences.\r\n⚠︎Delicate items not suitable for vigorous movement.\r\n⚠︎The metal fittings are gold and silver in random color.',
+    'アクセサリ',
+    'https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-white.jpg',
+    ARRAY['https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-white.jpg','https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-silver.jpg','https://avaojbznmyigsnorfjoq.supabase.co/storage/v1/object/public/product-image/cyber-skyfish-pendant-black.jpg']::text[],
+    ARRAY['シルバー','ホワイト','ブラック']::text[],
+    0,
+    '2026-01-12 14:50:03.756885+00',
+    '{"シルバー": 0, "ブラック": 0, "ホワイト": 0}'::jsonb
+);
 
 -- Name: order_items order_items_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
