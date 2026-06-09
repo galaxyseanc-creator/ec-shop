@@ -21,7 +21,7 @@ export default function Header() {
   const handleSignOut = async () => {
     try {
       await signOut()
-      router.push('/')
+      router.push('/online-store')
     } catch (error) {
       console.error('ログアウトエラー:', error)
     }
@@ -55,13 +55,13 @@ export default function Header() {
           <div className="flex items-center gap-2">
             {mounted && !loading && (
               user ? (
-                <Link href="/account" className="p-2 hover:text-white/60 transition-colors">
+                <Link href="/online-store/account" className="p-2 hover:text-white/60 transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </Link>
               ) : (
-                <Link href="/login" className="p-2 hover:text-white/60 transition-colors">
+                <Link href="/online-store/login" className="p-2 hover:text-white/60 transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
@@ -69,7 +69,7 @@ export default function Header() {
               )
             )}
             
-            <Link href="/cart" className="p-2 relative hover:text-white/60 transition-colors">
+            <Link href="/online-store/cart" className="p-2 relative hover:text-white/60 transition-colors">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
@@ -84,13 +84,13 @@ export default function Header() {
 
         {/* ナビゲーション */}
         <nav className="flex items-center justify-center gap-8 text-sm tracking-wider">
-          <Link href="/" className="hover:text-white/60 transition-colors">
+          <Link href="/online-store" className="hover:text-white/60 transition-colors">
             HOME
           </Link>
-          <Link href="/catalog" className="hover:text-white/60 transition-colors">
+          <Link href="/online-store/catalog" className="hover:text-white/60 transition-colors">
             CATALOG
           </Link>
-          <Link href="/contact" className="hover:text-white/60 transition-colors">
+          <Link href="/online-store/contact" className="hover:text-white/60 transition-colors">
             CONTACT
           </Link>
         </nav>

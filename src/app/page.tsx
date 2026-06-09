@@ -1,87 +1,72 @@
-import { getProducts } from '@/lib/products'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import AccordionSection from '@/components/AccordionSection'
-import Link from "next/link"
 import Image from 'next/image'
+import Link from 'next/link'
+import SiteHeader from '@/components/SiteHeader'
 
-export default async function Home() {
-  const products = await getProducts()
+const sections = [
+  { href: '/world', label: 'World', copy: 'A growing archive for Skyfish stories, visuals, and future projects.' },
+  { href: '/online-store', label: 'ONLINE STORE', copy: 'Wearable objects, magazines, and limited pieces from Skyfish.' },
+  { href: '/tunecore', label: 'TUNE CORE', copy: 'Music distribution links and release information.' },
+  { href: '/sns', label: 'SNS', copy: 'Official channels and active social links.' },
+  { href: '/about', label: 'About us', copy: 'The identity, contact point, and background of Skyfish.' },
+]
 
+export default function StartPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Header />
+    <main className="min-h-screen bg-black text-white">
+      <SiteHeader />
 
-      {/* ヒーロー画像 */}
-      <div className="w-full relative">
+      <section className="relative flex min-h-[92vh] items-end overflow-hidden">
         <Image
           src="/made-in-heaven-full-pic.jpg"
-          alt="Hero Banner"
-          width={1920}
-          height={600}
-          className="w-full h-auto object-cover"
+          alt="Skyfish visual"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-70"
           priority
         />
-      </div>
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.78)_78%,#000_100%)]" />
 
-      {/* メインコンテンツ */}
-      <main className="container mx-auto px-3 sm:px-4 py-8 sm:py-12">
-        {/* ITEM見出し */}
-        <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 tracking-wider">ITEM</h2>
-
-        {/* 商品グリッド */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
-          {products.map((product) => (
-            <Link 
-              key={product.id} 
-              href={`/products/${product.id}`}
-              className="group"
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:pb-20">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.36em] text-emerald-200/85">
+            Official Web Portal
+          </p>
+          <h1 className="max-w-4xl text-6xl font-black uppercase leading-none tracking-normal sm:text-8xl lg:text-9xl">
+            SkyFisH
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
+            A doorway to our world, store, music links, social presence, and project identity.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Link
+              href="/world"
+              className="bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black transition-colors hover:bg-emerald-200"
             >
-              <div className="relative aspect-square bg-black rounded-lg overflow-hidden mb-4 border border-white/10 group-hover:border-purple-500/50 transition-all">
-                {/* ネオングローエフェクト */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-green-500/10 to-blue-500/10 blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-                
-                {/* 商品画像 */}
-                {product.image_url ? (
-                  <Image
-                    src={product.image_url}
-                    alt={product.name}
-                    fill
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 25vw"
-                    className="object-cover relative z-10"
-                    priority={false}
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-white/30 text-sm z-10">
-                    画像なし
-                  </div>
-                )}
-
-                {/* 売り切れバッジ */}
-                {product.stock === 0 && (
-                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 bg-white/90 text-black text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded">
-                    SOLD OUT
-                  </div>
-                )}
-              </div>
-
-              {/* 商品情報 */}
-              <div className="space-y-1">
-                <h3 className="text-xs sm:text-sm font-medium tracking-wide group-hover:text-purple-400 transition-colors line-clamp-2">
-                  {product.name}
-                </h3>
-                <p className="text-base sm:text-lg font-bold">
-                  ¥{product.price.toLocaleString()} JPY
-                </p>
-              </div>
+              Enter World
             </Link>
-          ))}
+            <Link
+              href="/online-store"
+              className="border border-white/45 px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-white hover:bg-white hover:text-black"
+            >
+              Online Store
+            </Link>
+          </div>
         </div>
-      </main>
+      </section>
 
-      <AccordionSection />
-
-      <Footer />
-    </div>
+      <section className="mx-auto grid max-w-7xl grid-cols-1 border-y border-white/10 px-4 sm:px-6 md:grid-cols-5">
+        {sections.map((section) => (
+          <Link
+            key={section.href}
+            href={section.href}
+            className="group border-b border-white/10 py-8 transition-colors hover:bg-white hover:text-black md:border-b-0 md:border-r md:border-white/10 md:px-5 last:md:border-r-0"
+          >
+            <h2 className="text-sm font-bold uppercase tracking-[0.22em]">{section.label}</h2>
+            <p className="mt-4 text-sm leading-6 text-white/58 group-hover:text-black/68">
+              {section.copy}
+            </p>
+          </Link>
+        ))}
+      </section>
+    </main>
   )
 }

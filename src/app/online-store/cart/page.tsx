@@ -23,7 +23,7 @@ export default function CartPage() {
     try {
       // 未ログインの場合はログインページへ
       if (!user) {
-        router.push('/login?redirect=/cart')
+        router.push('/online-store/login?redirect=/online-store/cart')
         return
       }
 
@@ -125,7 +125,7 @@ export default function CartPage() {
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <Link 
-                      href={`/products/${item.product.id}`}
+                      href={`/online-store/products/${item.product.id}`}
                       className="font-medium hover:text-purple-400 transition-colors"
                     >
                       {item.product.name}

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SkyFisH ONLINE STORE",
-  description: "Official online store for SkyFisH brand",
+  title: "SkyFisH",
+  description: "Official web portal for SkyFisH",
 };
 
 export default function RootLayout({

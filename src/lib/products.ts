@@ -1,10 +1,14 @@
-import { supabase } from './supabase'
+import { isSupabaseConfigured, supabase } from './supabase'
 import { Product } from '@/types/database'
 
 /**
  * 全商品を取得
  */
 export async function getProducts(): Promise<Product[]> {
+  if (!isSupabaseConfigured) {
+    return []
+  }
+
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -22,6 +26,10 @@ export async function getProducts(): Promise<Product[]> {
  * 商品IDで1件取得
  */
 export async function getProductById(id: string): Promise<Product | null> {
+  if (!isSupabaseConfigured) {
+    return null
+  }
+
   const { data, error } = await supabase
     .from('products')
     .select('*')

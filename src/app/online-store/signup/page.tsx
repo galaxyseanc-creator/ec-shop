@@ -40,7 +40,7 @@ export default function SignupPage() {
       
       // 3秒後にログインページへ
       setTimeout(() => {
-        router.push('/login')
+        router.push('/online-store/login')
       }, 3000)
     } catch (err: any) {
       setError(err.message || 'アカウント作成に失敗しました')
@@ -85,7 +85,7 @@ export default function SignupPage() {
             <h1 className="text-3xl font-bold mb-2">新規登録</h1>
             <p className="text-white/60">
               すでにアカウントをお持ちの方は{' '}
-              <Link href="/login" className="text-purple-400 hover:text-purple-300 underline">
+              <Link href="/online-store/login" className="text-purple-400 hover:text-purple-300 underline">
                 ログイン
               </Link>
             </p>

@@ -20,7 +20,7 @@ export default function LoginPage() {
 
     try {
       await signIn(email, password)
-      router.push('/account')
+      router.push('/online-store/account')
     } catch (err: any) {
       setError(err.message || 'ログインに失敗しました')
     } finally {
@@ -38,7 +38,7 @@ export default function LoginPage() {
             <h1 className="text-3xl font-bold mb-2">ログイン</h1>
             <p className="text-white/60">
               アカウントをお持ちでない方は{' '}
-              <Link href="/signup" className="text-purple-400 hover:text-purple-300 underline">
+              <Link href="/online-store/signup" className="text-purple-400 hover:text-purple-300 underline">
                 新規登録
               </Link>
             </p>

@@ -105,7 +105,7 @@ export default function TermsPage() {
               <li>商品に不良や破損があった場合、または注文と異なる商品が届いた場合は、商品到着後7日以内にご連絡ください。</li>
               <li>お客様都合による返品・交換は原則としてお受けできません。</li>
               <li>詳細は
-                <Link href="/legal/shipping" className="text-purple-400 hover:text-purple-300 underline mx-1">
+                <Link href="/online-store/legal/shipping" className="text-purple-400 hover:text-purple-300 underline mx-1">
                   配送・返品ポリシー
                 </Link>
                 をご確認ください。
@@ -182,13 +182,13 @@ export default function TermsPage() {
         {/* フッターリンク */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-wrap gap-4 text-sm">
-            <Link href="/legal/tokushoho" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/tokushoho" className="text-purple-400 hover:text-purple-300">
               特定商取引法に基づく表記
             </Link>
-            <Link href="/legal/privacy" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/privacy" className="text-purple-400 hover:text-purple-300">
               プライバシーポリシー
             </Link>
-            <Link href="/legal/shipping" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/shipping" className="text-purple-400 hover:text-purple-300">
               配送・返品ポリシー
             </Link>
             <Link href="/about" className="text-purple-400 hover:text-purple-300">

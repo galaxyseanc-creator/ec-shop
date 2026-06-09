@@ -140,7 +140,7 @@ export default function TokushohoPage() {
             </p>
             <p className="mt-2">
               詳しくは
-              <Link href="/legal/privacy" className="text-purple-400 hover:text-purple-300 underline mx-1">
+              <Link href="/online-store/legal/privacy" className="text-purple-400 hover:text-purple-300 underline mx-1">
                 プライバシーポリシー
               </Link>
               をご確認ください。
@@ -151,13 +151,13 @@ export default function TokushohoPage() {
         {/* フッターリンク */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-wrap gap-4 text-sm">
-            <Link href="/legal/privacy" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/privacy" className="text-purple-400 hover:text-purple-300">
               プライバシーポリシー
             </Link>
-            <Link href="/legal/terms" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/terms" className="text-purple-400 hover:text-purple-300">
               利用規約
             </Link>
-            <Link href="/legal/shipping" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/shipping" className="text-purple-400 hover:text-purple-300">
               配送・返品ポリシー
             </Link>
             <Link href="/about" className="text-purple-400 hover:text-purple-300">

@@ -72,7 +72,7 @@ function OrderSuccessContent() {
         {/* アクションボタン */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
-            href="/account"
+            href="/online-store/account"
             className="px-8 py-3 bg-white text-black rounded hover:bg-white/90 transition-all font-medium"
           >
             マイアカウント

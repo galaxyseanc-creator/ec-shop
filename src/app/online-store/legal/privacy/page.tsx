@@ -176,13 +176,13 @@ export default function PrivacyPolicyPage() {
         {/* フッターリンク */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-wrap gap-4 text-sm">
-            <Link href="/legal/tokushoho" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/tokushoho" className="text-purple-400 hover:text-purple-300">
               特定商取引法に基づく表記
             </Link>
-            <Link href="/legal/terms" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/terms" className="text-purple-400 hover:text-purple-300">
               利用規約
             </Link>
-            <Link href="/legal/shipping" className="text-purple-400 hover:text-purple-300">
+            <Link href="/online-store/legal/shipping" className="text-purple-400 hover:text-purple-300">
               配送・返品ポリシー
             </Link>
             <Link href="/about" className="text-purple-400 hover:text-purple-300">

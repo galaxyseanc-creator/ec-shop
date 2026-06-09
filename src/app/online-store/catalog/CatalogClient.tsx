@@ -171,7 +171,7 @@ export default function CatalogClient({ products }: Props) {
           {filteredAndSortedProducts.map((product) => (
             <Link 
               key={product.id} 
-              href={`/products/${product.id}`}
+              href={`/online-store/products/${product.id}`}
               className="group"
             >
               <div className="relative">

@@ -38,15 +38,15 @@ export default function Footer() {
 
         {/* フッターリンク */}
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/60 mb-6">
-          <Link href="/legal/privacy" className="hover:text-white transition-colors">
+          <Link href="/online-store/legal/privacy" className="hover:text-white transition-colors">
             プライバシーポリシー
           </Link>
           <span className="text-white/30">·</span>
-          <Link href="/legal/tokushoho" className="hover:text-white transition-colors">
+          <Link href="/online-store/legal/tokushoho" className="hover:text-white transition-colors">
             特定商取引法に基づく表記
           </Link>
           <span className="text-white/30">·</span>
-          <Link href="/legal/shipping" className="hover:text-white transition-colors">
+          <Link href="/online-store/legal/shipping" className="hover:text-white transition-colors">
             返金ポリシー
           </Link>
           <span className="text-white/30">·</span>

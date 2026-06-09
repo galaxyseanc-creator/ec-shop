@@ -12,7 +12,7 @@ export default function AccountPage() {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.push('/login')
+      router.push('/online-store/login')
     }
   }, [user, loading, router])
 

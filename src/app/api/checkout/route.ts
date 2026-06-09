@@ -30,8 +30,8 @@ export async function POST(request: NextRequest) {
         quantity: item.quantity,
       })),
       mode: 'payment',
-      success_url: `${request.nextUrl.origin}/order/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${request.nextUrl.origin}/cart`,
+      success_url: `${request.nextUrl.origin}/online-store/order/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${request.nextUrl.origin}/online-store/cart`,
       customer_email: email,
       metadata: {
         userId: userId || '',

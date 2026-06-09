@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { User } from '@supabase/supabase-js'
-import { supabase } from '@/lib/supabase'
+import { isSupabaseConfigured, supabase } from '@/lib/supabase'
 
 interface AuthStore {
   user: User | null
@@ -18,6 +18,11 @@ export const useAuthStore = create<AuthStore>((set) => ({
   setLoading: (loading) => set({ loading }),
 
   initialize: async () => {
+    if (!isSupabaseConfigured) {
+      set({ user: null, loading: false })
+      return
+    }
+
     set({ loading: true })
     
     // 現在のセッションを取得
