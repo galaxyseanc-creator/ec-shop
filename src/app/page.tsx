@@ -1,71 +1,68 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import SiteHeader from '@/components/SiteHeader'
 
-const sections = [
-  { href: '/world', label: 'World', copy: 'A growing archive for Skyfish stories, visuals, and future projects.' },
-  { href: '/online-store', label: 'ONLINE STORE', copy: 'Wearable objects, magazines, and limited pieces from Skyfish.' },
-  { href: '/tunecore', label: 'TUNE CORE', copy: 'Music distribution links and release information.' },
-  { href: '/sns', label: 'SNS', copy: 'Official channels and active social links.' },
-  { href: '/about', label: 'About us', copy: 'The identity, contact point, and background of Skyfish.' },
+const navItems = [
+  { href: '/world', label: 'W0rID' },
+  { href: '/online-store', label: 'Onlin3 St0rE' },
+  { href: '/tunecore', label: 'Tun3 CorE' },
+  { href: '/about', label: 'AbouT us' },
 ]
 
 export default function StartPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <SiteHeader />
+    <main className="min-h-screen bg-[#252525] p-4 text-black sm:p-8">
+      <section className="relative mx-auto flex min-h-[calc(100vh-2rem)] max-w-[1500px] items-center justify-center overflow-hidden border border-black/20 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.45)] sm:min-h-[calc(100vh-4rem)]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(0,0,0,0.11),rgba(255,255,255,0)_18%),radial-gradient(circle_at_20%_22%,rgba(0,0,0,0.06),rgba(255,255,255,0)_22%),radial-gradient(circle_at_82%_70%,rgba(0,0,0,0.05),rgba(255,255,255,0)_24%),repeating-radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.045)_0_1px,rgba(255,255,255,0)_2px_18px)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0)_0_30%,rgba(0,0,0,0.035)_32%,rgba(255,255,255,0)_38%_100%),linear-gradient(72deg,rgba(0,0,0,0.025)_0_1px,rgba(255,255,255,0)_1px_18px)] opacity-80" />
+        <div className="absolute inset-0 opacity-[0.23] [background-image:radial-gradient(ellipse_at_center,transparent_0_30%,rgba(0,0,0,0.18)_31%,transparent_32%),radial-gradient(ellipse_at_30%_65%,transparent_0_22%,rgba(0,0,0,0.12)_23%,transparent_24%),radial-gradient(ellipse_at_75%_28%,transparent_0_18%,rgba(0,0,0,0.1)_19%,transparent_20%)]" />
 
-      <section className="relative flex min-h-[92vh] items-end overflow-hidden">
         <Image
-          src="/made-in-heaven-full-pic.jpg"
-          alt="Skyfish visual"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-70"
+          src="/logo.png"
+          alt=""
+          width={760}
+          height={560}
+          className="pointer-events-none absolute bottom-4 left-1/2 w-[70vw] max-w-[720px] -translate-x-1/2 select-none opacity-[0.09] blur-[2px] grayscale"
           priority
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.78)_78%,#000_100%)]" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:pb-20">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.36em] text-emerald-200/85">
-            Official Web Portal
-          </p>
-          <h1 className="max-w-4xl text-6xl font-black uppercase leading-none tracking-normal sm:text-8xl lg:text-9xl">
+        <div className="relative z-10 flex min-h-[760px] w-full max-w-3xl flex-col items-center justify-center px-6 py-20 text-center sm:min-h-[820px]">
+          <h1 className="mb-12 font-serif text-6xl font-black italic leading-none tracking-normal text-black sm:text-8xl">
             SkyFisH
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-            A doorway to our world, store, music links, social presence, and project identity.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+
+          <nav className="flex flex-col items-center gap-9 font-serif text-[34px] font-semibold leading-none tracking-normal text-black sm:text-[42px]">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition-all duration-300 hover:-translate-y-0.5 hover:scale-105 hover:text-black/50"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-16 flex items-center justify-center gap-8 text-4xl font-black text-black">
             <Link
-              href="/world"
-              className="bg-white px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black transition-colors hover:bg-emerald-200"
+              href="/sns"
+              aria-label="SNS X"
+              className="font-sans transition-all duration-300 hover:scale-110 hover:text-black/50"
             >
-              Enter World
+              X
             </Link>
             <Link
-              href="/online-store"
-              className="border border-white/45 px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white transition-colors hover:border-white hover:bg-white hover:text-black"
+              href="/sns"
+              aria-label="SNS Instagram"
+              className="transition-all duration-300 hover:scale-110 hover:text-black/50"
             >
-              Online Store
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-9 w-9" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.3" cy="6.8" r="0.8" fill="currentColor" stroke="none" />
+              </svg>
             </Link>
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto grid max-w-7xl grid-cols-1 border-y border-white/10 px-4 sm:px-6 md:grid-cols-5">
-        {sections.map((section) => (
-          <Link
-            key={section.href}
-            href={section.href}
-            className="group border-b border-white/10 py-8 transition-colors hover:bg-white hover:text-black md:border-b-0 md:border-r md:border-white/10 md:px-5 last:md:border-r-0"
-          >
-            <h2 className="text-sm font-bold uppercase tracking-[0.22em]">{section.label}</h2>
-            <p className="mt-4 text-sm leading-6 text-white/58 group-hover:text-black/68">
-              {section.copy}
-            </p>
-          </Link>
-        ))}
       </section>
     </main>
   )
