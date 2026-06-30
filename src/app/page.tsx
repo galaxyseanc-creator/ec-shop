@@ -12,16 +12,12 @@ export default function StartPage() {
   return (
     <main className="min-h-screen bg-[#252525] p-4 text-black sm:p-8">
       <section className="relative mx-auto flex min-h-[calc(100vh-2rem)] max-w-[1500px] items-center justify-center overflow-hidden border border-black/20 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.45)] sm:min-h-[calc(100vh-4rem)]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(0,0,0,0.11),rgba(255,255,255,0)_18%),radial-gradient(circle_at_20%_22%,rgba(0,0,0,0.06),rgba(255,255,255,0)_22%),radial-gradient(circle_at_82%_70%,rgba(0,0,0,0.05),rgba(255,255,255,0)_24%),repeating-radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.045)_0_1px,rgba(255,255,255,0)_2px_18px)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0)_0_30%,rgba(0,0,0,0.035)_32%,rgba(255,255,255,0)_38%_100%),linear-gradient(72deg,rgba(0,0,0,0.025)_0_1px,rgba(255,255,255,0)_1px_18px)] opacity-80" />
-        <div className="absolute inset-0 opacity-[0.23] [background-image:radial-gradient(ellipse_at_center,transparent_0_30%,rgba(0,0,0,0.18)_31%,transparent_32%),radial-gradient(ellipse_at_30%_65%,transparent_0_22%,rgba(0,0,0,0.12)_23%,transparent_24%),radial-gradient(ellipse_at_75%_28%,transparent_0_18%,rgba(0,0,0,0.1)_19%,transparent_20%)]" />
-
         <Image
-          src="/logo.png"
-          alt=""
-          width={760}
-          height={560}
-          className="pointer-events-none absolute bottom-4 left-1/2 w-[70vw] max-w-[720px] -translate-x-1/2 select-none opacity-[0.09] blur-[2px] grayscale"
+          src="/home/pc-background.jpg"
+          alt="SkyFisH home background"
+          fill
+          sizes="100vw"
+          className="object-cover"
           priority
         />
 
