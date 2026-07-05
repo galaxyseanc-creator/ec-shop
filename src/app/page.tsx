@@ -4,7 +4,7 @@ import Link from 'next/link'
 const worldButton = {
   href: '/world',
   label: 'World',
-  className: 'top-[37.7%] left-[45%] h-[6%] w-[12%]',
+  className: 'top-[29.8%] left-[45%] h-[6%] w-[12%]',
 }
 
 const navItems = [
