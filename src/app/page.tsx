@@ -43,9 +43,10 @@ export default function StartPage() {
           <Image
             src="/home/pc-world-b.png"
             alt=""
-            fill
+            width={146}
+            height={51}
             sizes="7vw"
-            className="object-fill opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+            className="absolute left-1/2 top-1/2 h-[70.2%] w-[91.5%] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
           />
         </Link>
 
