@@ -19,10 +19,31 @@ const xButton = {
   className: 'top-[66.35%] left-[48.21%] h-[2.59%] w-[1.65%]',
 }
 
-const navItems = [
-  { href: '/online-store', label: 'Online Store', className: 'top-[40%] left-[40%] h-[6%] w-[20%]' },
-  { href: '/tunecore', label: 'Tune Core', className: 'top-[48.5%] left-[40.5%] h-[6%] w-[19%]' },
-  { href: '/about', label: 'About us', className: 'top-[57%] left-[41%] h-[6%] w-[18%]' },
+const imageButtons = [
+  {
+    href: '/online-store',
+    label: 'Online Store',
+    className: 'top-[39.47%] left-[45.73%] h-[2.67%] w-[10.66%]',
+    normal: '/home/pc-online-store-a.png',
+    hover: '/home/pc-online-store-b.png',
+    sizes: '11vw',
+  },
+  {
+    href: '/tunecore',
+    label: 'Tune Core',
+    className: 'top-[48.45%] left-[46.83%] h-[2.7%] w-[8.78%]',
+    normal: '/home/pc-tune-core-a.png',
+    hover: '/home/pc-tune-core-b.png',
+    sizes: '9vw',
+  },
+  {
+    href: '/about',
+    label: 'About us',
+    className: 'top-[56.6%] left-[46.88%] h-[2.8%] w-[8.13%]',
+    normal: '/home/pc-about-us-a.png',
+    hover: '/home/pc-about-us-b.png',
+    sizes: '6vw',
+  },
 ]
 
 export default function StartPage() {
@@ -80,6 +101,30 @@ export default function StartPage() {
           />
         </Link>
 
+        {imageButtons.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            aria-label={item.label}
+            className={`group absolute z-20 block ${item.className}`}
+          >
+            <Image
+              src={item.normal}
+              alt=""
+              fill
+              sizes={item.sizes}
+              className="object-fill opacity-100 transition-opacity duration-150 group-hover:opacity-0"
+            />
+            <Image
+              src={item.hover}
+              alt=""
+              fill
+              sizes={item.sizes}
+              className="object-fill opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+            />
+          </Link>
+        ))}
+
         <Link
           href={instagramButton.href}
           aria-label={instagramButton.label}
@@ -101,14 +146,6 @@ export default function StartPage() {
           />
         </Link>
 
-        {navItems.map((item) => (
-          <Link
-            key={`${item.href}-${item.label}`}
-            href={item.href}
-            aria-label={item.label}
-            className={`absolute z-10 block ${item.className}`}
-          />
-        ))}
       </section>
     </main>
   )
