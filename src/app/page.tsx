@@ -50,56 +50,56 @@ const mobileButtons = [
   {
     href: '/world',
     label: 'World',
-    className: 'top-[29.3%] left-[40.5%] h-[6%] w-[19%]',
+    className: 'top-[28.6%] left-[37%] h-[7.5%] w-[26%]',
     normal: '/home/mb-world-a.png',
     hover: '/home/mb-world-b.png',
-    sizes: '19vw',
+    sizes: '26vw',
   },
   {
     href: '/online-store',
     label: 'Online Store',
-    className: 'top-[36.1%] left-[35.5%] h-[6%] w-[30%]',
+    className: 'top-[35.6%] left-[29%] h-[7.5%] w-[42%]',
     normal: '/home/mb-online-store-a.png',
     hover: '/home/mb-online-store-b.png',
-    sizes: '30vw',
+    sizes: '42vw',
   },
   {
     href: '/tunecore',
     label: 'Tune Core',
-    className: 'top-[43.3%] left-[37.3%] h-[6%] w-[26%]',
+    className: 'top-[42.9%] left-[32%] h-[7.5%] w-[36%]',
     normal: '/home/mb-tune-core-a.png',
     hover: '/home/mb-tune-core-b.png',
-    sizes: '26vw',
+    sizes: '36vw',
   },
   {
     href: '/about',
     label: 'About us',
-    className: 'top-[50.2%] left-[38.6%] h-[6%] w-[23%]',
+    className: 'top-[50.1%] left-[34%] h-[7.5%] w-[32%]',
     normal: '/home/mb-about-us-a.png',
     hover: '/home/mb-about-us-b.png',
-    sizes: '23vw',
+    sizes: '32vw',
   },
   {
     href: '/sns',
     label: 'X',
-    className: 'top-[60.7%] left-[44.2%] h-[4%] w-[6%]',
+    className: 'top-[60.2%] left-[42.5%] h-[4.8%] w-[9%]',
     normal: '/home/mb-x-a.png',
     hover: '/home/mb-x-b.png',
-    sizes: '6vw',
+    sizes: '9vw',
   },
   {
     href: '/sns',
     label: 'Instagram',
-    className: 'top-[60.6%] left-[51.7%] h-[4%] w-[6%]',
+    className: 'top-[60.2%] left-[50%] h-[4.8%] w-[9%]',
     normal: '/home/mb-instagram-a.png',
     hover: '/home/mb-instagram-b.png',
-    sizes: '6vw',
+    sizes: '9vw',
   },
 ]
 
 export default function StartPage() {
   return (
-    <main className="h-screen w-screen overflow-hidden bg-[#252525] text-black">
+    <main className="fixed inset-0 h-[100dvh] w-screen overflow-hidden bg-[#252525] text-black">
       <section className="relative h-full w-full overflow-hidden">
         <Image
           src="/home/pc-background.jpg"
