@@ -13,11 +13,16 @@ const instagramButton = {
   className: 'top-[66.27%] left-[52.07%] h-[2.67%] w-[1.61%]',
 }
 
+const xButton = {
+  href: '/sns',
+  label: 'X',
+  className: 'top-[66.35%] left-[48.21%] h-[2.59%] w-[1.65%]',
+}
+
 const navItems = [
   { href: '/online-store', label: 'Online Store', className: 'top-[40%] left-[40%] h-[6%] w-[20%]' },
   { href: '/tunecore', label: 'Tune Core', className: 'top-[48.5%] left-[40.5%] h-[6%] w-[19%]' },
   { href: '/about', label: 'About us', className: 'top-[57%] left-[41%] h-[6%] w-[18%]' },
-  { href: '/sns', label: 'X', className: 'top-[66.5%] left-[45%] h-[5%] w-[4%]' },
 ]
 
 export default function StartPage() {
@@ -51,6 +56,27 @@ export default function StartPage() {
             fill
             sizes="12vw"
             className="object-contain opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+          />
+        </Link>
+
+        <Link
+          href={xButton.href}
+          aria-label={xButton.label}
+          className={`group absolute z-20 block ${xButton.className}`}
+        >
+          <Image
+            src="/home/pc-x-a.png"
+            alt=""
+            fill
+            sizes="2vw"
+            className="object-fill opacity-100 transition-opacity duration-150 group-hover:opacity-0"
+          />
+          <Image
+            src="/home/pc-x-b.png"
+            alt=""
+            fill
+            sizes="2vw"
+            className="object-fill opacity-0 transition-opacity duration-150 group-hover:opacity-100"
           />
         </Link>
 
