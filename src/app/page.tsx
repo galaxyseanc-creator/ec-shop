@@ -23,7 +23,7 @@ const imageButtons = [
   {
     href: '/online-store',
     label: 'Online Store',
-    className: 'top-[39.47%] left-[45.73%] h-[2.67%] w-[10.66%]',
+    className: 'top-[37.8%] left-[42.56%] h-[6%] w-[17%]',
     normal: '/home/pc-online-store-a.png',
     hover: '/home/pc-online-store-b.png',
     sizes: '11vw',
@@ -31,7 +31,7 @@ const imageButtons = [
   {
     href: '/tunecore',
     label: 'Tune Core',
-    className: 'top-[48.45%] left-[46.83%] h-[2.7%] w-[8.78%]',
+    className: 'top-[46.8%] left-[43.72%] h-[6%] w-[15%]',
     normal: '/home/pc-tune-core-a.png',
     hover: '/home/pc-tune-core-b.png',
     sizes: '9vw',
@@ -39,7 +39,7 @@ const imageButtons = [
   {
     href: '/about',
     label: 'About us',
-    className: 'top-[56.6%] left-[46.88%] h-[2.8%] w-[8.13%]',
+    className: 'top-[55%] left-[44.45%] h-[6%] w-[13%]',
     normal: '/home/pc-about-us-a.png',
     hover: '/home/pc-about-us-b.png',
     sizes: '6vw',
@@ -113,14 +113,14 @@ export default function StartPage() {
               alt=""
               fill
               sizes={item.sizes}
-              className="object-fill opacity-100 transition-opacity duration-150 group-hover:opacity-0"
+              className="object-contain opacity-100 transition-opacity duration-150 group-hover:opacity-0"
             />
             <Image
               src={item.hover}
               alt=""
               fill
               sizes={item.sizes}
-              className="object-fill opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+              className="object-contain opacity-0 transition-opacity duration-150 group-hover:opacity-100"
             />
           </Link>
         ))}
