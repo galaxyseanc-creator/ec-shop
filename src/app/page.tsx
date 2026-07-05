@@ -7,12 +7,17 @@ const worldButton = {
   className: 'top-[29.8%] left-[45%] h-[6%] w-[12%]',
 }
 
+const instagramButton = {
+  href: '/sns',
+  label: 'Instagram',
+  className: 'top-[66.27%] left-[52.07%] h-[2.67%] w-[1.61%]',
+}
+
 const navItems = [
   { href: '/online-store', label: 'Online Store', className: 'top-[40%] left-[40%] h-[6%] w-[20%]' },
   { href: '/tunecore', label: 'Tune Core', className: 'top-[48.5%] left-[40.5%] h-[6%] w-[19%]' },
   { href: '/about', label: 'About us', className: 'top-[57%] left-[41%] h-[6%] w-[18%]' },
   { href: '/sns', label: 'X', className: 'top-[66.5%] left-[45%] h-[5%] w-[4%]' },
-  { href: '/sns', label: 'Instagram', className: 'top-[66.5%] left-[51%] h-[5%] w-[4%]' },
 ]
 
 export default function StartPage() {
@@ -46,6 +51,27 @@ export default function StartPage() {
             fill
             sizes="12vw"
             className="object-contain opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+          />
+        </Link>
+
+        <Link
+          href={instagramButton.href}
+          aria-label={instagramButton.label}
+          className={`group absolute z-20 block ${instagramButton.className}`}
+        >
+          <Image
+            src="/home/pc-instagram-a.png"
+            alt=""
+            fill
+            sizes="2vw"
+            className="object-fill opacity-100 transition-opacity duration-150 group-hover:opacity-0"
+          />
+          <Image
+            src="/home/pc-instagram-b.png"
+            alt=""
+            fill
+            sizes="2vw"
+            className="object-fill opacity-0 transition-opacity duration-150 group-hover:opacity-100"
           />
         </Link>
 
