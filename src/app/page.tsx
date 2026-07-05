@@ -46,6 +46,57 @@ const imageButtons = [
   },
 ]
 
+const mobileButtons = [
+  {
+    href: '/world',
+    label: 'World',
+    className: 'top-[29.3%] left-[40.5%] h-[6%] w-[19%]',
+    normal: '/home/mb-world-a.png',
+    hover: '/home/mb-world-b.png',
+    sizes: '19vw',
+  },
+  {
+    href: '/online-store',
+    label: 'Online Store',
+    className: 'top-[36.1%] left-[35.5%] h-[6%] w-[30%]',
+    normal: '/home/mb-online-store-a.png',
+    hover: '/home/mb-online-store-b.png',
+    sizes: '30vw',
+  },
+  {
+    href: '/tunecore',
+    label: 'Tune Core',
+    className: 'top-[43.3%] left-[37.3%] h-[6%] w-[26%]',
+    normal: '/home/mb-tune-core-a.png',
+    hover: '/home/mb-tune-core-b.png',
+    sizes: '26vw',
+  },
+  {
+    href: '/about',
+    label: 'About us',
+    className: 'top-[50.2%] left-[38.6%] h-[6%] w-[23%]',
+    normal: '/home/mb-about-us-a.png',
+    hover: '/home/mb-about-us-b.png',
+    sizes: '23vw',
+  },
+  {
+    href: '/sns',
+    label: 'X',
+    className: 'top-[60.7%] left-[44.2%] h-[4%] w-[6%]',
+    normal: '/home/mb-x-a.png',
+    hover: '/home/mb-x-b.png',
+    sizes: '6vw',
+  },
+  {
+    href: '/sns',
+    label: 'Instagram',
+    className: 'top-[60.6%] left-[51.7%] h-[4%] w-[6%]',
+    normal: '/home/mb-instagram-a.png',
+    hover: '/home/mb-instagram-b.png',
+    sizes: '6vw',
+  },
+]
+
 export default function StartPage() {
   return (
     <main className="h-screen w-screen overflow-hidden bg-[#252525] text-black">
@@ -55,14 +106,22 @@ export default function StartPage() {
           alt="SkyFisH home"
           fill
           sizes="100vw"
-          className="object-cover"
+          className="hidden object-cover md:block"
+          priority
+        />
+        <Image
+          src="/home/mb-home-background.jpg"
+          alt="SkyFisH home"
+          fill
+          sizes="100vw"
+          className="object-cover md:hidden"
           priority
         />
 
         <Link
           href={worldButton.href}
           aria-label={worldButton.label}
-          className={`group absolute z-20 block ${worldButton.className}`}
+          className={`group absolute z-20 hidden md:block ${worldButton.className}`}
         >
           <Image
             src="/home/pc-world-a.png"
@@ -83,7 +142,7 @@ export default function StartPage() {
         <Link
           href={xButton.href}
           aria-label={xButton.label}
-          className={`group absolute z-20 block ${xButton.className}`}
+          className={`group absolute z-20 hidden md:block ${xButton.className}`}
         >
           <Image
             src="/home/pc-x-a.png"
@@ -106,7 +165,7 @@ export default function StartPage() {
             key={item.label}
             href={item.href}
             aria-label={item.label}
-            className={`group absolute z-20 block ${item.className}`}
+            className={`group absolute z-20 hidden md:block ${item.className}`}
           >
             <Image
               src={item.normal}
@@ -128,7 +187,7 @@ export default function StartPage() {
         <Link
           href={instagramButton.href}
           aria-label={instagramButton.label}
-          className={`group absolute z-20 block ${instagramButton.className}`}
+          className={`group absolute z-20 hidden md:block ${instagramButton.className}`}
         >
           <Image
             src="/home/pc-instagram-a.png"
@@ -146,6 +205,29 @@ export default function StartPage() {
           />
         </Link>
 
+        {mobileButtons.map((item) => (
+          <Link
+            key={`mobile-${item.label}`}
+            href={item.href}
+            aria-label={item.label}
+            className={`group absolute z-20 block md:hidden ${item.className}`}
+          >
+            <Image
+              src={item.normal}
+              alt=""
+              fill
+              sizes={item.sizes}
+              className="object-contain opacity-100 transition-opacity duration-150 group-hover:opacity-0"
+            />
+            <Image
+              src={item.hover}
+              alt=""
+              fill
+              sizes={item.sizes}
+              className="object-contain opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+            />
+          </Link>
+        ))}
       </section>
     </main>
   )
