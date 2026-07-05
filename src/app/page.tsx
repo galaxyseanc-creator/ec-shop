@@ -48,14 +48,14 @@ const imageButtons = [
 
 export default function StartPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#252525] text-black">
-      <section className="relative aspect-[2048/1184] w-full max-w-[2048px] overflow-hidden">
+    <main className="h-screen w-screen overflow-hidden bg-[#252525] text-black">
+      <section className="relative h-full w-full overflow-hidden">
         <Image
-          src="/home/reference-home.png"
+          src="/home/pc-background.jpg"
           alt="SkyFisH home"
           fill
           sizes="100vw"
-          className="object-contain"
+          className="object-cover"
           priority
         />
 
