@@ -4,7 +4,7 @@ import Link from 'next/link'
 const worldButton = {
   href: '/world',
   label: 'World',
-  className: 'top-[31.29%] left-[47.75%] h-[2.75%] w-[6.34%]',
+  className: 'top-[37.7%] left-[45%] h-[6%] w-[12%]',
 }
 
 const navItems = [
@@ -37,16 +37,15 @@ export default function StartPage() {
             src="/home/pc-world-a.png"
             alt=""
             fill
-            sizes="7vw"
-            className="object-fill opacity-100 transition-opacity duration-150 group-hover:opacity-0"
+            sizes="12vw"
+            className="object-contain opacity-100 transition-opacity duration-150 group-hover:opacity-0"
           />
           <Image
             src="/home/pc-world-b.png"
             alt=""
-            width={146}
-            height={51}
-            sizes="7vw"
-            className="absolute left-1/2 top-1/2 h-[70.2%] w-[91.5%] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+            fill
+            sizes="12vw"
+            className="object-contain opacity-0 transition-opacity duration-150 group-hover:opacity-100"
           />
         </Link>
 
