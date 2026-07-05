@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+const worldButton = {
+  href: '/world',
+  label: 'World',
+  className: 'top-[31.5%] left-[43%] h-[6%] w-[14%]',
+}
+
 const navItems = [
-  { href: '/world', label: 'World', className: 'top-[31.5%] left-[43%] h-[6%] w-[14%]' },
   { href: '/online-store', label: 'Online Store', className: 'top-[40%] left-[40%] h-[6%] w-[20%]' },
   { href: '/tunecore', label: 'Tune Core', className: 'top-[48.5%] left-[40.5%] h-[6%] w-[19%]' },
   { href: '/about', label: 'About us', className: 'top-[57%] left-[41%] h-[6%] w-[18%]' },
@@ -22,6 +27,27 @@ export default function StartPage() {
           className="object-contain"
           priority
         />
+
+        <Link
+          href={worldButton.href}
+          aria-label={worldButton.label}
+          className={`group absolute z-20 block ${worldButton.className}`}
+        >
+          <Image
+            src="/home/pc-world-a.png"
+            alt=""
+            fill
+            sizes="14vw"
+            className="object-contain opacity-100 transition-opacity duration-150 group-hover:opacity-0"
+          />
+          <Image
+            src="/home/pc-world-b.png"
+            alt=""
+            fill
+            sizes="14vw"
+            className="object-contain opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+          />
+        </Link>
 
         {navItems.map((item) => (
           <Link
